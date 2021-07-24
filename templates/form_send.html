@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<style>
+    .img-container{
+        text-align: center;
+    }
+</style>
+
+<form action="form_recv" method="post">
+
+    <h2>&bull; 호실 &bull; </h2>
+    <p><input type = "text" name ="number" placeholder="number insert" style = "text-align:left; width:300px; height:50px"></p>
+    <p><input type="submit" value="SUBMIT" style="width: 200px; height:50px"></p>
+</form>
+
+<div class="img-container">
+    <hr>
+    <h1>Pi_Cam</h1>
+    <h3><img src="{{ url_for('video_feed') }}"  width="50%"></h3>
+    
+	<h6> <a href="/pan/+"class="button">&uarr;</a></h6> 
+    <h6> <a href="/tilt/-"class="button"> &larr; <a href="/pan/-"class="button"> &darr; </a> </a> <a href="/tilt/+"class="button"> &rarr; </a> </h6>
+
+    <hr>
+
+</div>
+
+
+{% endblock %}

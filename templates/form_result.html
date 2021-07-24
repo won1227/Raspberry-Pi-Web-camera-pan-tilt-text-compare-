@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %} <p>&bull; 결과창 &bull; </p><hr>{% endblock %}
+
+{% block content %}
+
+{% for k,v in data.items() %}
+<!--    <p>key : {{k}}, &nbsp value : {{v}}</p> -->
+    {% if v|int == PW_value %}          <!--type cast-->
+        <h2> &bull; 호실 </h2>
+        <h3> &deg;&nbsp;{{v}} ROOM&deg;&nbsp;</h3>
+        <hr><br>
+        {% set floor = ((v|int)/100)|int %}
+        <h2> &bull; 층 </h2>
+        <h3> &deg;&nbsp; {{floor}} FLOOR! &deg;&nbsp;</h3>
+        <hr>
+        <br>
+        
+    {% else %}
+        <h1> !! ERROR !! </h1>
+    {% endif %}
+
+{% endfor %}
+<br>
+
+<p> pw : {{PW_value}}</p>
+
+{% endblock %}
